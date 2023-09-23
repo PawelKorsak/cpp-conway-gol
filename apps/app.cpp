@@ -1,8 +1,10 @@
+#include <unistd.h>
 #include <iostream>
-#include <lib/lib.hpp>
+#include <lib/canvas.hpp>
 
 int main()
 {
-  std::cout << hello_world() << std::endl;
+  Canvas canvas(800, 800);
+  std::cin.get();
   return 0;
 }

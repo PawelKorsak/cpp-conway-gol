@@ -7,11 +7,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include(FetchContent)
+
 if(MAKE_TEST)
     add_subdirectory(tests)
 endif()
 
-set(CMAKE_CXX_COMPILER /usr/bin/g++)
+add_subdirectory(external)
 
 add_subdirectory(src)
 

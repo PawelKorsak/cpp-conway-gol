@@ -1,2 +1,2 @@
-# cmake-cpp-template
-Template for creating C++17 repositories using CMake
+# cpp-conway-gol
+Simple conway game of life written in cpp 
