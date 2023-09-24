@@ -12,7 +12,7 @@ include(GoogleTest)
 
 enable_testing()
 
-add_executable(tests canvasTests.cpp)
+add_executable(tests gridTests.cpp)
 
 target_link_libraries(tests canvas GTest::gtest_main GTest::gtest)
 

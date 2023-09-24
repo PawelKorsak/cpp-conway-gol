@@ -1,19 +1,23 @@
 #include <unistd.h>
 #include <iostream>
 #include <lib/canvas.hpp>
+#include <lib/grid.hpp>
+#include <memory>
 
 int main()
 {
-  Canvas canvas(100, 10, "Canvas");
-  if(!canvas.Initialised()) {
-    std::cout << "Canvas not initialised" << std::endl;
-    return 1;
+  std::shared_ptr<Canvas> canvas = std::make_shared<Canvas>(100,5,"Game Of Life");
+  Grid grid(canvas);
+
+  grid.setupGrid(100,0.05);
+  grid.printGridToCanvas();
+  grid.evolve();
+  grid.printGridToCanvas();
+
+  while(true) {
+    grid.delay(100);
+    grid.evolve();
+    grid.printGridToCanvas();
   }
-  canvas.Clear();
-  canvas.AddCell(0, 1);
-  canvas.AddCell(1, 1);
-  canvas.AddCell(2, 1);
-  canvas.Update();
-  std::cin.get();
   return 0;
 }

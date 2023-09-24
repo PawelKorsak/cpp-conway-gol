@@ -1,4 +1,5 @@
 #include <cstdint>
+#include <cstdlib>
 #include <lib/canvas.hpp>
 #include "SDL.h"
 #include "SDL_render.h"
@@ -49,6 +50,21 @@ void Canvas::Update()
 bool Canvas::Initialised()
 {
   return status.initialised;
+}
+
+void Canvas::WaitLoop()
+{
+  SDL_Event event;
+  if (SDL_PollEvent(&event)) {
+    if (event.type == SDL_QUIT) {
+      exit(EXIT_SUCCESS);
+    }
+  }
+}
+
+Canvas::Dimensions Canvas::getDimensions()
+{
+  return dimensions;
 }
 
 bool Canvas::InitialiseSDL()

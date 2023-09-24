@@ -1,6 +1,8 @@
-set(HEADER_LIST "${PROJECT_SOURCE_DIR}/include/lib/canvas.hpp")
+set(LIB_HEADER_DIR "${PROJECT_SOURCE_DIR}/include/lib")
 
-add_library(canvas canvas.cpp ${HEADER_LIST})
+set(HEADER_LIST "${LIB_HEADER_DIR}/canvas.hpp" "${LIB_HEADER_DIR}/grid.hpp" "${LIB_HEADER_DIR}/cell.hpp")
+
+add_library(canvas canvas.cpp grid.cpp cell.cpp ${HEADER_LIST})
 
 target_include_directories(canvas PUBLIC ../include)
 

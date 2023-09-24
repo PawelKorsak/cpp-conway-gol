@@ -1,5 +1,5 @@
-#ifndef LIB_H
-#define LIB_H
+#ifndef CANVAS_H
+#define CANVAS_H
 
 #include <SDL.h>
 #include <sys/types.h>
@@ -17,8 +17,8 @@ class Canvas {
   void AddCell(const uint16_t& x, const uint16_t y);
   void Update();
   bool Initialised();
+  void WaitLoop();
 
- private:
   struct Status {
     bool initialised;
   };
@@ -27,6 +27,10 @@ class Canvas {
     uint16_t cell_size;
     uint16_t window_size;
   };
+
+  Dimensions getDimensions();
+
+ private:
 
   std::string title;
 
