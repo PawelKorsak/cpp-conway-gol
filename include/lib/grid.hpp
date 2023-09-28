@@ -30,6 +30,7 @@ class Grid {
   State state = NONE;
 
   std::vector<Cell> grid;
+  std::vector<Cell> old_grid;
   std::shared_ptr<Canvas> canvas;
 
   uint16_t size_of_grid;

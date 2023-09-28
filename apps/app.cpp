@@ -9,7 +9,7 @@ int main()
   std::shared_ptr<Canvas> canvas = std::make_shared<Canvas>(100,5,"Game Of Life");
   Grid grid(canvas);
 
-  grid.setupGrid(100,0.05);
+  grid.setupGrid(100,0.3);
   grid.printGridToCanvas();
   grid.evolve();
   grid.printGridToCanvas();

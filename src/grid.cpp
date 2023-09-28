@@ -64,26 +64,27 @@ void Grid::await()
 
 void Grid::evolve()
 {
+  old_grid = grid;
   for (uint16_t y = 0; y < size_of_grid; y++) {
     for (uint16_t x = 0; x < size_of_grid; x++) {
       if (x > 0 && x < size_of_grid - 1) {
         if (y > 0 && y < size_of_grid - 1) {
           uint16_t count_of_neighbors = 0;
-          if (grid[size_of_grid * (y + 1) + x].state == Cell::ALIVE)
+          if (old_grid[size_of_grid * (y + 1) + x].state == Cell::ALIVE)
             count_of_neighbors++;
-          if (grid[size_of_grid * (y + 1) + (x + 1)].state == Cell::ALIVE)
+          if (old_grid[size_of_grid * (y + 1) + (x + 1)].state == Cell::ALIVE)
             count_of_neighbors++;
-          if (grid[size_of_grid * y + (x + 1)].state == Cell::ALIVE)
+          if (old_grid[size_of_grid * y + (x + 1)].state == Cell::ALIVE)
             count_of_neighbors++;
-          if (grid[size_of_grid * (y - 1) + (x + 1)].state == Cell::ALIVE)
+          if (old_grid[size_of_grid * (y - 1) + (x + 1)].state == Cell::ALIVE)
             count_of_neighbors++;
-          if (grid[size_of_grid * (y - 1) + x].state == Cell::ALIVE)
+          if (old_grid[size_of_grid * (y - 1) + x].state == Cell::ALIVE)
             count_of_neighbors++;
-          if (grid[size_of_grid * (y - 1) + (x - 1)].state == Cell::ALIVE)
+          if (old_grid[size_of_grid * (y - 1) + (x - 1)].state == Cell::ALIVE)
             count_of_neighbors++;
-          if (grid[size_of_grid * y + (x - 1)].state == Cell::ALIVE)
+          if (old_grid[size_of_grid * y + (x - 1)].state == Cell::ALIVE)
             count_of_neighbors++;
-          if (grid[size_of_grid * (y + 1) + (x - 1)].state == Cell::ALIVE)
+          if (old_grid[size_of_grid * (y + 1) + (x - 1)].state == Cell::ALIVE)
             count_of_neighbors++;
           grid[size_of_grid * y + x].setNeighbors(count_of_neighbors);
         } else
